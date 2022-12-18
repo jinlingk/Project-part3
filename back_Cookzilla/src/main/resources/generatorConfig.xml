@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- -->
+    <classPathEntry  location="/Users/emrick/.m2/repository/mysql/mysql-connector-java/8.0.26/mysql-connector-java-8.0.26.jar"/>
+    <context id="cvehub"  targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- Whether to remove the automatically generated annotation true: yes: false: no -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--Database link URL, user name, password -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://huawei.sunhanwu.top:3306/cookzilla" userId="root" password="Ydm186919">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- Package name and location of the generated model-->
+        <javaModelGenerator targetPackage="edu.nyu.lk.cookzilla.model" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- Package name and location of the generated mapping file-->
+        <sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- The package name and location where the DAO is generated-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="edu.nyu.lk.cookzilla.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!-- The tableName of the table to be generated is the name of the table or view in the database domainObjectName is the name of the entity class-->
+<!--        <table tableName="UserInfo" domainObjectName="UserInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="Event" domainObjectName="Event" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="EventImages" domainObjectName="EventImages" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="Group" domainObjectName="Group" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="GroupEvent" domainObjectName="GroupEvent" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="Images" domainObjectName="Images" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="Ingredients" domainObjectName="Ingredients" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="Recipe" domainObjectName="Repice" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="RecipeImages" domainObjectName="RecipeImages" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="RecipeIngredient" domainObjectName="RecipeIngredient" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="RecipeLink" domainObjectName="RecipeLink" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="RecipeReview" domainObjectName="RecipeRevice" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="RecipeTag" domainObjectName="RecipeTag" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="ReviewImages" domainObjectName="ReviewImages" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <table tableName="Reviews" domainObjectName="Reviews" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+<!--        <table tableName="Tag" domainObjectName="Tag" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+    </context>
+</generatorConfiguration>
+
+

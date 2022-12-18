@@ -1,0 +1,41 @@
+{
+  "name": "apphub",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "dev": "cross-env NODE_ENV=dev nodemon ./bin/main.js"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "core-js": "^3.8.3",
+    "element-ui": "^2.4.5",
+    "js-md5": "^0.7.3",
+    "jssha": "^3.3.0",
+    "less-loader": "^11.0.0",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "vue-cli-plugin-element": "^1.0.1",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunhanwu/apphub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunhanwu/apphub/issues"
+  },
+  "homepage": "https://github.com/sunhanwu/apphub#readme"
+}

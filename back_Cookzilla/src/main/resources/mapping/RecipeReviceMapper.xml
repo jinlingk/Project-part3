@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.nyu.lk.cookzilla.dao.RecipeReviceMapper" >
+  <resultMap id="BaseResultMap" type="edu.nyu.lk.cookzilla.model.RecipeRevice" >
+    <id column="recipeReviewId" property="recipereviewid" jdbcType="INTEGER" />
+    <result column="recipeId" property="recipeid" jdbcType="INTEGER" />
+    <result column="reviewId" property="reviewid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    recipeReviewId, recipeId, reviewId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from RecipeReview
+    where recipeReviewId = #{recipereviewid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from RecipeReview
+    where recipeReviewId = #{recipereviewid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.nyu.lk.cookzilla.model.RecipeRevice" >
+    insert into RecipeReview (recipeReviewId, recipeId, reviewId
+      )
+    values (#{recipereviewid,jdbcType=INTEGER}, #{recipeid,jdbcType=INTEGER}, #{reviewid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.nyu.lk.cookzilla.model.RecipeRevice" >
+    insert into RecipeReview
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recipereviewid != null" >
+        recipeReviewId,
+      </if>
+      <if test="recipeid != null" >
+        recipeId,
+      </if>
+      <if test="reviewid != null" >
+        reviewId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recipereviewid != null" >
+        #{recipereviewid,jdbcType=INTEGER},
+      </if>
+      <if test="recipeid != null" >
+        #{recipeid,jdbcType=INTEGER},
+      </if>
+      <if test="reviewid != null" >
+        #{reviewid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.nyu.lk.cookzilla.model.RecipeRevice" >
+    update RecipeReview
+    <set >
+      <if test="recipeid != null" >
+        recipeId = #{recipeid,jdbcType=INTEGER},
+      </if>
+      <if test="reviewid != null" >
+        reviewId = #{reviewid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where recipeReviewId = #{recipereviewid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.nyu.lk.cookzilla.model.RecipeRevice" >
+    update RecipeReview
+    set recipeId = #{recipeid,jdbcType=INTEGER},
+      reviewId = #{reviewid,jdbcType=INTEGER}
+    where recipeReviewId = #{recipereviewid,jdbcType=INTEGER}
+  </update>
+</mapper>

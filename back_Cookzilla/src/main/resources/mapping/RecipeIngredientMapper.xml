@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.nyu.lk.cookzilla.dao.RecipeIngredientMapper" >
+  <resultMap id="BaseResultMap" type="edu.nyu.lk.cookzilla.model.RecipeIngredient" >
+    <id column="recipeIngredientId" property="recipeingredientid" jdbcType="INTEGER" />
+    <result column="recipeId" property="recipeid" jdbcType="INTEGER" />
+    <result column="ingredientId" property="ingredientid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    recipeIngredientId, recipeId, ingredientId
+  </sql>
+  <select id="selectIngredientIds" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+   select
+       <include refid="Base_Column_List"/>
+    from RecipeIngredient
+    where recipeId = #{recipeId}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from RecipeIngredient
+    where recipeIngredientId = #{recipeingredientid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from RecipeIngredient
+    where recipeIngredientId = #{recipeingredientid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.nyu.lk.cookzilla.model.RecipeIngredient" >
+    insert into RecipeIngredient (recipeIngredientId, recipeId, ingredientId
+      )
+    values (#{recipeingredientid,jdbcType=INTEGER}, #{recipeid,jdbcType=INTEGER}, #{ingredientid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.nyu.lk.cookzilla.model.RecipeIngredient" >
+    insert into RecipeIngredient
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recipeingredientid != null" >
+        recipeIngredientId,
+      </if>
+      <if test="recipeid != null" >
+        recipeId,
+      </if>
+      <if test="ingredientid != null" >
+        ingredientId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recipeingredientid != null" >
+        #{recipeingredientid,jdbcType=INTEGER},
+      </if>
+      <if test="recipeid != null" >
+        #{recipeid,jdbcType=INTEGER},
+      </if>
+      <if test="ingredientid != null" >
+        #{ingredientid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.nyu.lk.cookzilla.model.RecipeIngredient" >
+    update RecipeIngredient
+    <set >
+      <if test="recipeid != null" >
+        recipeId = #{recipeid,jdbcType=INTEGER},
+      </if>
+      <if test="ingredientid != null" >
+        ingredientId = #{ingredientid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where recipeIngredientId = #{recipeingredientid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.nyu.lk.cookzilla.model.RecipeIngredient" >
+    update RecipeIngredient
+    set recipeId = #{recipeid,jdbcType=INTEGER},
+      ingredientId = #{ingredientid,jdbcType=INTEGER}
+    where recipeIngredientId = #{recipeingredientid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://114.115.161.244:3306/cookzilla?useUnicode=true&characterEncoding=utf-8
+    username:
+    password:
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    static-path-pattern: /**
+  web:
+    resources:
+      static-locations: classpath:/static
+server:
+  port: 8080
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+images:
+  fileSize: 4194304
+  upPath: D:\pics
+  scaleRatio: 0.20f
+  imageType: png,jpg,jpeg
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: DEBUG
+        web: ERROR
+      hibernate: DEBUG
+      apache:
+        commons:
+          dbcp2: DEBUG
+  file:
+    path: log

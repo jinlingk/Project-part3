@@ -1,0 +1,7 @@
+images:
+  fileSize: 4194304
+  upPath: classpath:static.images
+  #Compression ratio
+  scaleRatio: 0.20f
+  #picture type
+  imageType: png,jpg,jpeg

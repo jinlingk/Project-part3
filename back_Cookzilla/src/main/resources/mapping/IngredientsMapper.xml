@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.nyu.lk.cookzilla.dao.IngredientsMapper" >
+  <resultMap id="BaseResultMap" type="edu.nyu.lk.cookzilla.model.Ingredients" >
+    <id column="ingredientsId" property="ingredientsid" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="quantities" property="quantities" jdbcType="REAL" />
+    <result column="purchaseLink" property="purchaselink" jdbcType="VARCHAR" />
+    <result column="allergen" property="allergen" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ingredientsId, name, quantities, purchaseLink, allergen
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Ingredients
+    where ingredientsId = #{ingredientsid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Ingredients
+    where ingredientsId = #{ingredientsid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" useGeneratedKeys="true" keyProperty="ingredientsid" parameterType="edu.nyu.lk.cookzilla.model.Ingredients" >
+    insert into Ingredients (ingredientsId, name, quantities, 
+      purchaseLink, allergen)
+    values (#{ingredientsid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{quantities,jdbcType=REAL}, 
+      #{purchaselink,jdbcType=VARCHAR}, #{allergen,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.nyu.lk.cookzilla.model.Ingredients" >
+    insert into Ingredients
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ingredientsid != null" >
+        ingredientsId,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="quantities != null" >
+        quantities,
+      </if>
+      <if test="purchaselink != null" >
+        purchaseLink,
+      </if>
+      <if test="allergen != null" >
+        allergen,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ingredientsid != null" >
+        #{ingredientsid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="quantities != null" >
+        #{quantities,jdbcType=REAL},
+      </if>
+      <if test="purchaselink != null" >
+        #{purchaselink,jdbcType=VARCHAR},
+      </if>
+      <if test="allergen != null" >
+        #{allergen,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.nyu.lk.cookzilla.model.Ingredients" >
+    update Ingredients
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="quantities != null" >
+        quantities = #{quantities,jdbcType=REAL},
+      </if>
+      <if test="purchaselink != null" >
+        purchaseLink = #{purchaselink,jdbcType=VARCHAR},
+      </if>
+      <if test="allergen != null" >
+        allergen = #{allergen,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ingredientsId = #{ingredientsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.nyu.lk.cookzilla.model.Ingredients" >
+    update Ingredients
+    set name = #{name,jdbcType=VARCHAR},
+      quantities = #{quantities,jdbcType=REAL},
+      purchaseLink = #{purchaselink,jdbcType=VARCHAR},
+      allergen = #{allergen,jdbcType=VARCHAR}
+    where ingredientsId = #{ingredientsid,jdbcType=INTEGER}
+  </update>
+</mapper>
